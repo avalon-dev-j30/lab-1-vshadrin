@@ -6,4 +6,4 @@
 
 В рамках лабораторной работы необходимо создать базу данных согласно предложенной диаграмме.
 
-[!Структура базы данных](http://raw.githubusercontent.com/avalon-dev-j30/lab-1/master/images/database.png)
+![Структура базы данных](http://raw.githubusercontent.com/avalon-dev-j30/lab-1/master/images/database.png)
