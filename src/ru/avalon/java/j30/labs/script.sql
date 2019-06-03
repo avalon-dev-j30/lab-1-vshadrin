@@ -5,33 +5,29 @@
  * 3. Добавьте в каждую таблицу минимум три записи.
  */
 CREATE TABLE roles (
-     id integer uniqe,
-     name varchar(255) primary key (name),
-               
+     id integer unique,
+     name varchar(255) primary key              
 );
 
 CREATE TABLE userinfo (
     id integer primary key,
     name varchar(255),
-    surname varchar(255),
-              
+    surname varchar(255)             
 );
 
 CREATE TABLE "user" (
       id integer unique,
       email varchar(255) primary key,
       password varchar(255) NOT NULL,
-      info integer NOT NULL references userinfo(id) uniqe,
-      role integer NOT NULL references roles(id),
-                  
+      info integer NOT NULL references userinfo(id) unique,
+      role integer NOT NULL references roles(id)                  
 );
 
 CREATE TABLE "order"
 (
       id integer primary key,
       customer integer references "user" (id),
-      created timestamp NOT NULL,
-                   
+      created timestamp NOT NULL                   
 );
 
 CREATE TABLE supplier (
@@ -39,8 +35,7 @@ CREATE TABLE supplier (
       name varchar(255) primary key,
       address varchar(255),
       phone varchar(255) NOT NULL,
-      representative varchar(255),
-                    
+      representative varchar(255)                    
 );
 
 CREATE TABLE product (
@@ -49,8 +44,7 @@ CREATE TABLE product (
       title varchar(255) NOT NULL,
       supplier integer NOT NULL references supplier(id),
       initial_price double NOT NULL,
-      retail_value double NOT NULL,
-            
+      retail_value double NOT NULL            
 );
 
 CREATE TABLE order2product (
@@ -92,7 +86,7 @@ VALUES (1, '56', 'apple', 1, 5, 15),
        (2, '43', 'barry', 2, 8, 14),
        (3, '67', 'lemon', 3, 2, 6);
 
-INSERT INTO order2product("order", product)
+INSERT INTO order2product (orders, product)
 VALUES (1, 1),
        (2, 2),
        (3, 3);
