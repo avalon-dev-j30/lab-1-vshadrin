@@ -5,7 +5,7 @@
  * 3. Добавьте в каждую таблицу минимум три записи.
  */
 CREATE TABLE roles (
-     id integer,
+     id integer uniqe,
      name varchar(255) primary key (name),
                
 );
@@ -21,7 +21,7 @@ CREATE TABLE "user" (
       id integer unique,
       email varchar(255) primary key,
       password varchar(255) NOT NULL,
-      info integer NOT NULL references rserinfo(id),
+      info integer NOT NULL references userinfo(id) uniqe,
       role integer NOT NULL references roles(id),
                   
 );
@@ -47,7 +47,7 @@ CREATE TABLE product (
       id integer unique,
       code varchar(255) primary key,
       title varchar(255) NOT NULL,
-      supplier integer references supplier(id),
+      supplier integer NOT NULL references supplier(id),
       initial_price double NOT NULL,
       retail_value double NOT NULL,
             
